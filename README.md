@@ -58,4 +58,46 @@ tests.md - файл с тестами (входные данные и ожида
 
 8. Изменение кода для максимального использовния регистров (hw1registers.s):
 
-т.к. в программе только несколько чисел (индексаторы), которые можно засунуть в регистры (массивы в регистры не засунуть) особо ничего не поменялось
+т.к. в программе только несколько чисел (индексаторы), которые можно засунуть в регистры (массивы в регистры не засунуть) особо ничего не поменялось в плане регистров (только для i теперь используется rbx)
+
+дополнительные изменения:
+
+    - lea	rax, str[rip] # rax = &str
+	- mov	rdi, rax # rdi = rax
+    + lea	rdi, str[rip] # rdi = &str
+    
+    - lea	rax, substr[rip] # rax = &substr
+	- mov	rdi, rax # rdi = rax
+    + lea	rdi, substr[rip] # rdi = &substr
+    
+    - lea	rax, .LC0[rip] #rax = &("Введите строку: ")
+	- mov	rdi, rax # rdi = rax = &("Введите строку: ")
+    + lea	rdi, .LC0[rip] #rdi = &("Введите строку: ")
+    
+    - lea	rax, str[rip] # rax = &str
+	- mov	rdi, rax # rdi = rax
+    + lea	rdi, str[rip] # rdi = &str
+    
+    - lea	rax, .LC1[rip] # rax = &("Введите подстроку: ")
+	- mov	rdi, rax # rdi = rax = &("Введите подстроку: ")
+    + lea	rdi, .LC1[rip] # rdi = &("Введите подстроку: ")
+    
+    - lea	rax, substr[rip] # rax = &substr
+	- mov	rdi, rax # rdi = rax
+    + lea	rdi, substr[rip] # rdi = &substr
+    
+    - lea	rax, str[rip] # rax = &str
+	- mov	rdi, rax # rdi = rax
+    + lea	rdi, str[rip] # rdi = &str
+    
+    - lea	rax, substr[rip] # rax = &substr
+	- mov	rdi, rax # rdi = rax
+    + lea	rdi, substr[rip] # rdi = &substr
+
+    - lea	rax, .LC3[rip] # rax = &("%d")
+	- mov	rdi, rax # rdi = rax
+    + lea	rdi, .LC3[rip] # rdi = &("%d")
+    
+    - mov	eax, DWORD PTR [rdx+rax] # eax = indexes[i]
+	- mov	esi, eax # esi = eax
+    + mov	esi, DWORD PTR [rdx+rax] # esi = indexes[i]
