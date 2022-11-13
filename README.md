@@ -102,6 +102,8 @@ tests.md - файл с тестами (входные данные и ожида
 	- mov	esi, eax # esi = eax
     + mov	esi, DWORD PTR [rdx+rax] # esi = indexes[i]
 
+9. Сравнение размеров финальной версии и версии на c: 
+c.out (16 248 байт) > s2.out (16 144 байт)
 
 0_0
 
